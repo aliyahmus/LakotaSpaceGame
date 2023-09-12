@@ -3,10 +3,6 @@
 
 ```
 
-/// @description Insert description here
-// You can write your code in this editor
-
-
 if keyboard_check(vk_up)
 {
 		motion_add(image_angle, 0.1);	
@@ -34,13 +30,56 @@ if mouse_check_button_pressed(mb_left)
 **Collision Event with obj_rock**
 
 ```
-
-/// @description Insert description here
-// You can write your code in this editor
 effect_create_above(ef_firework, x, y, 1, c_lime);
 instance_destroy();
 obj_game.alarm[0] = 120;
 
 ```
 
-# obj_
+# obj_rock 
+
+**Create Event**
+
+```
+
+speed = 1; 
+direction = random(360);
+image_angle = random (360); 
+
+```
+
+**Step Event**
+
+```
+move_wrap(true, true, 100);
+image_angle += 1;
+
+```
+
+# obj_game
+
+**Create Event**
+```
+points = 0;
+```
+
+**Alarm Event**
+
+```
+room_restart();
+```
+
+**Draq GUI**
+
+```
+draw_text(10, 10, points);
+```
+
+# obj_bullet
+
+**Create Event**
+
+```
+speed = 10 
+direction = obj_player.image_angle;
+```
